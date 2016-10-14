@@ -1,0 +1,8 @@
+[package]
+name = "avro-test"
+version = "0.1.0"
+authors = ["Clement Delafargue <clement@delafargue.name>"]
+
+[dependencies]
+avro = "0.2.1"
+iron = "0.4.0"
