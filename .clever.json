@@ -1,1 +1,1 @@
-{"apps":[{"app_id":"app_f5df1390-afc8-4bf5-839d-e26ddeae8817","deploy_url":"https://push-par-clevercloud-customers.services.clever-cloud.com/app_f5df1390-afc8-4bf5-839d-e26ddeae8817.git","name":"rust-test","alias":"rust-test"}]}
+{"apps":[{"app_id":"app_f5df1390-afc8-4bf5-839d-e26ddeae8817","deploy_url":"git+ssh://git@push-par-clevercloud-customers.services.clever-cloud.com/app_f5df1390-afc8-4bf5-839d-e26ddeae8817.git","name":"rust-test","alias":"rust-test"}]}

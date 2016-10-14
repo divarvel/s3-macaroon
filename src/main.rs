@@ -6,8 +6,8 @@ use iron::status;
 
 fn main() {
     Iron::new(|_: &mut Request| {
-        Ok(Response::with((status::Ok, "Hello World!")))
-    }).http("localhost:8080").unwrap();
+        Ok(Response::with((status::Ok, "Hello World from rust!")))
+    }).http("0.0.0.0:8080").unwrap();
 }
 
 pub struct HttpFront {
