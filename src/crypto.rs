@@ -38,23 +38,33 @@ pub fn decrypt<'a>(data: &'a [u8], key_bytes: &[u8]) -> Result<Vec<u8>, Unspecif
     Ok(output)
 }
 
-fn encrypt_and_decrypt<'a>(data: &'a [u8], key: &[u8]) -> Result<Vec<u8>, Unspecified> {
-    let encrypted = try!(encrypt(data, key));
-    let decrypted = try!(decrypt(&encrypted, key));
-    Ok(decrypted)
-}
+#[cfg(test)]
+mod tests {
+    use ring::error::Unspecified;
+    use ring::rand::SystemRandom;
+    use super::{decrypt, encrypt};
 
-#[test]
-pub fn test() {
-    let generator = SystemRandom::new();
-    let data = b"abcd";
-    let mut key = [0u8; 32];
-    let _ = generator.fill(&mut key).unwrap();
+    fn encrypt_and_decrypt<'a>(data: &'a [u8], key: &[u8]) -> Result<Vec<u8>, Unspecified> {
+        let encrypted = try!(encrypt(data, key));
+        let decrypted = try!(decrypt(&encrypted, key));
+        Ok(decrypted)
+    }
+
+    #[test]
+    pub fn test() {
+        let generator = SystemRandom::new();
+        let data = b"abcd";
+        let mut key = [0u8; 32];
+        let _ = generator.fill(&mut key).unwrap();
 
 
-    if let Ok(res) = encrypt_and_decrypt(data, &key) {
-        assert_eq!(&data[..], &res[..]);
-    } else {
-        assert_eq!(true, false);
+        if let Ok(res) = encrypt_and_decrypt(data, &key) {
+            assert_eq!(&data[..], &res[..]);
+        } else {
+            assert_eq!(true, false);
+        }
     }
 }
+
+
+

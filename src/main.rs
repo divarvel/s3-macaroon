@@ -77,6 +77,7 @@ fn hello(_: &mut Request) -> IronResult<Response> {
     Ok(Response::with((status::Ok, "Hello World from rust!")))
 }
 
+#[allow(dead_code)]
 fn read_param<'a>(r: &'a Request, name: &str) -> Option<&'a str> {
     r.extensions.get::<Router>().and_then(|r| r.find(name))
 }
