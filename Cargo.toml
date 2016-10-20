@@ -4,5 +4,9 @@ version = "0.1.0"
 authors = ["Clement Delafargue <clement@delafargue.name>"]
 
 [dependencies]
-avro = "0.2.1"
+avro = { git = "https://github.com/divarvel/rust-avro", branch = "enum" }
 iron = "0.4.0"
+router = "0.4.0"
+rusoto = {version = "0.17", features = ["s3"]}
+rustc-serialize = "0.3.19"
+ring = "0.4.3"
